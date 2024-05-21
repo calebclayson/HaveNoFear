@@ -1,0 +1,17 @@
+// Game: HaveNoFear
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures"
+"_tb_mod" "textures"
+// brush 0
+{
+( -512 -64 -16 ) ( -512 -63 -16 ) ( -512 -64 -15 ) temple_tile2 0 0 0 1 1
+( -64 -800 -16 ) ( -64 -800 -15 ) ( -63 -800 -16 ) temple_tile2 0 0 0 1 1
+( -64 -64 -16 ) ( -63 -64 -16 ) ( -64 -63 -16 ) temple_tile2 0 0 0 1 1
+( 64 64 16 ) ( 64 65 16 ) ( 65 64 16 ) temple_tile2 0 0 0 1 1
+( 64 336 16 ) ( 65 336 16 ) ( 64 336 17 ) temple_tile2 0 0 0 1 1
+( 320 64 16 ) ( 320 64 17 ) ( 320 65 16 ) temple_tile2 0 0 0 1 1
+}
+}

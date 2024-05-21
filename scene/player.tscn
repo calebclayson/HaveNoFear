@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctt2ak3ns2w05"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_u65el"]
+[ext_resource type="Texture2D" uid="uid://co62qi262x327" path="res://assets/ui/crosshair.png" id="2_f40fd"]
+[ext_resource type="PackedScene" uid="uid://clixqlsvgdors" path="res://assets/models/SWORD/WeaponKnightSword.glb" id="2_kb538"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m81v4"]
+height = 2.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_26a45"]
+height = 2.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w1v37"]
+height = 1.8
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225738, 0)
+script = ExtResource("1_u65el")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.876906, 0)
+mesh = SubResource("CapsuleMesh_m81v4")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66966, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+
+[node name="WeaponKnightSword" parent="Pivot/Camera3D" instance=ExtResource("2_kb538")]
+transform = Transform3D(-0.0397506, 0.121645, -0.739001, -0.22016, -0.709242, -0.104904, -0.715856, 0.211371, 0.0732989, 0.517154, 0.575121, -1.33119)
+
+[node name="CenterContainer" type="CenterContainer" parent="Pivot/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Pivot/Camera3D/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_f40fd")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="StandingColli" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892987, 0)
+shape = SubResource("CapsuleShape3D_26a45")
+
+[node name="CrouchColli" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52795, 0)
+shape = SubResource("CapsuleShape3D_w1v37")
+disabled = true
